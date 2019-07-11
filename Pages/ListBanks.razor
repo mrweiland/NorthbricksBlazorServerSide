@@ -2,15 +2,39 @@
 @using BlazorTestServerSide.Data
 @inject NorthbricksApi api
 
-<h1>Here are the supported banks</h1>
-@bodyResult
-
-
+<h1>Here are the supported banks on Northbricks platform today</h1>
+@if (banks == null)
+{
+    <p><em>Loading...</em></p>
+} else {
+ <table class="table">
+        <thead>
+            <tr>
+                <th>Logo</th>
+                <th>Full name</th>
+                <th>Country</th>
+                <th>Website</th>
+            </tr>
+        </thead>
+        <tbody>
+ @foreach (var bank in banks){
+     <tr>
+         <td>
+     <img src="@bank.logo" width="50px" height="50px" /></td>
+     <td>@bank.fullName</td>
+     <td>@bank.country</td>
+     <td><a href="@bank.website" target="_top">@bank.website</a></td>
+     </tr>
+ }
+         </tbody>
+    </table>
+}
 @code {
-    string bodyResult;
+    Bank[] banks;
 
     protected override async Task OnInitAsync()
     {
-        bodyResult = await api.GetBanks();
+        banks = await api.GetBanks();
+        
     }
 }
