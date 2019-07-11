@@ -1,0 +1,16 @@
+@page "/ListBanks"
+@using BlazorTestServerSide.Data
+@inject NorthbricksApi api
+
+<h1>Here are the supported banks</h1>
+@bodyResult
+
+
+@code {
+    string bodyResult;
+
+    protected override async Task OnInitAsync()
+    {
+        bodyResult = await api.GetBanks();
+    }
+}
