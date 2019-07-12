@@ -5,10 +5,14 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
+
+
 namespace BlazorTestServerSide.Data
 {
     public class NorthbricksApi
     {
+        
+        
         static readonly HttpClient client = new HttpClient();
         public async Task<Bank[]> GetBanks()
         {

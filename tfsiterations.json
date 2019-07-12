@@ -1,13 +1,5 @@
 {
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Information"
-    }
-  },
-  "AllowedHosts": "*",
-  "baseUrl": "https://tfs.test.com/",
+  "baseUrl": "https://tfs.raysearchlabs.com/",
   "collection": "DefaultCollection",
   "project": "MyProject",
   "teamDefaultBacklogIteration": "MyProject",
